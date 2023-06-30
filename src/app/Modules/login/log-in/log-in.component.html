@@ -1,0 +1,36 @@
+<div class="login-page">
+    <mat-card class="login-card">
+        <mat-card-header>
+            <mat-card-title class="title">WELCOME</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="login-form" [formGroup]="loginForm">
+                <mat-form-field class="full-width">
+                    <mat-label class="mat-label">Email</mat-label>
+                    <span matTextPrefix><mat-icon color="primary">email</mat-icon></span>
+                    <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email">
+                    <mat-error
+                        *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">{{getEmailErrorMessage()}}</mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label class="mat-label">Password</mat-label>
+                    <span matTextPrefix><mat-icon color="primary">password</mat-icon></span>
+                    <input [type]="hide ? 'password' : 'text'" matInput placeholder="Password"
+                        formControlName="password" required minlength="8">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon color="primary">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error
+                        *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">{{getPasswordErrorMessage()}}</mat-error>
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="login-button">
+                <button (click)="loginProcess(loginForm.value)" mat-raised-button type="submit"
+                    color="primary">Login</button>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>

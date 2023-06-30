@@ -1,0 +1,23 @@
+<!-- <div class="main-container">
+  <div class="header-content">
+    <app-header></app-header>
+  </div>
+  <div class="content-body">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="footer-content">
+    <app-footer></app-footer>
+  </div>
+</div> -->
+<mat-grid-list cols="1">
+  <mat-grid-tile-header>
+    <app-header></app-header>
+  </mat-grid-tile-header>
+  <mat-grid-tile>
+    <router-outlet></router-outlet>
+  </mat-grid-tile>
+  <mat-grid-tile-footer>
+    <app-footer></app-footer>
+  </mat-grid-tile-footer>
+</mat-grid-list>
+

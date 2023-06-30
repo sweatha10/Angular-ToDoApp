@@ -1,0 +1,48 @@
+.add-form {
+    min-width: 50px;
+    max-width: 500px;
+    padding: 20px;
+    width: 100%;
+
+    .form-full-width {
+        width: 100%;
+
+        mat-icon{
+            color: #3f51b5;
+        }
+
+        mat-error{
+            font-size: 10px;
+            color: red;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        .firstname {
+            padding: 0px 5px 0px 0px;
+        }
+
+        .lastname {
+            padding: 0px 0px 0px 5px;
+        }
+
+        .td {
+            padding-right: 8px;
+        }
+
+        section {
+            display: table;
+
+            .add-button-row {
+                display: table-cell;
+                max-width: 600px;
+            }
+
+            .add-button-row .mat-mdc-button-base {
+                margin: 8px 8px 8px 0;
+            }
+        }
+    }
+}

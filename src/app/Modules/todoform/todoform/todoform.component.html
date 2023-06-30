@@ -1,0 +1,47 @@
+<!-- <div *ngIf="isFormOpen"> -->
+    <form #todoForm="ngForm" class="add-form">
+        <table class="form-full-width" cellspacing="0">
+            <tr>
+                <td><mat-form-field class="full-width firstname" hintLabel="Max 10 characters">
+                        <mat-label>First name</mat-label>
+                        <input matInput #input maxlength="10" placeholder="First Name" [(ngModel)]="firstName" name="firstName" required>
+                        <mat-hint align="end">{{input.value.length}}/10</mat-hint>
+                    </mat-form-field></td>
+                <td><mat-form-field class="full-width lastname" hintLabel="Max 10 characters">
+                        <mat-label>Last name </mat-label>
+                        <input matInput #input maxlength="10" placeholder="Last Name" [(ngModel)]="lastName" name="lastName" required>
+                        <mat-hint align="end">{{input.value.length}}/10</mat-hint>
+                    </mat-form-field></td>
+            </tr>
+        </table>
+        <p>
+            <mat-form-field class="form-full-width">
+                <mat-label>Phone Number</mat-label>
+               <mat-icon matSuffix>phone</mat-icon>
+                <input matInput type="number"  placeholder="Phone Number" [(ngModel)]="phoneNumber" name="phoneNumber" (keydown)="checkLength2($event, inputText)" #inputText required pattern="[0-9]{10}">
+                <mat-error *ngIf="todoForm.controls['phoneNumber'].invalid">
+                    <!-- <mat-error *ngIf="todoForm.controls['phoneNumber'].hasError('required', 'phoneNumber')">Phone number is required</mat-error> -->
+                    <!-- <mat-error *ngIf="todoForm.controls['phoneNumber'].hasError('pattern', 'phoneNumber')">Phone number must be between 10 and 15 digits</mat-error> -->
+                </mat-error>
+            </mat-form-field>
+        </p>
+        <table class="form-full-width" cellspacing="0">
+            <tr>
+                <td><mat-form-field class="form-full-width">
+                        <mat-label>Country</mat-label>
+                        <mat-icon matSuffix>place</mat-icon>
+                        <input matInput placeholder="Country" [(ngModel)]="country" name="country" required>
+                    </mat-form-field></td>
+            </tr>
+        </table>
+        <section>
+            <mat-card-footer>
+                <div class="add-button-row">
+                    <button mat-raised-button color="primary" (click)="saveTodo()"
+                        [disabled]="!todoForm.form.valid">Save</button>
+                    <button mat-raised-button color="warn" (click)="closeDialog()">Close</button>
+                </div>
+            </mat-card-footer>
+        </section>
+    </form>
+<!-- </div> -->

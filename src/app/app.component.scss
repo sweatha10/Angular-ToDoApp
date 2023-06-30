@@ -1,0 +1,35 @@
+// .main-container {
+// .header-content {
+//   position: fixed;
+//   top: 0%;
+//   background-color: #3F51B5;
+//   padding: 20px;
+//   width: 100%;
+//   color: white;
+// }
+mat-grid-list {
+  position: relative;
+  .mat-grid-tile-content {
+    height: 100%;
+    padding: 60px 16px;
+    background-color: white;
+    display: flex;
+    position: fixed;
+    top: 80px;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+  }
+}
+
+
+// .footer-content {
+//   position: fixed;
+//   bottom: 0%;
+//   background-color: #3F51B5;
+//   text-align: center;
+//   padding: 10px;
+//   width: 100%;
+//   color: white;
+// }
+// }

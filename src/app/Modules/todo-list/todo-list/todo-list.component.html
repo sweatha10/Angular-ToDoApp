@@ -1,0 +1,92 @@
+<div class="todolist-page">
+    <h1 class="welcome" id="welcome">Welcome<span>&nbsp;&nbsp;{{displayuname()}}</span>!</h1>
+    <div class="mat-elevation-z8 main">
+        <button mat-raised-button color="primary" (click)="openForm()" class="add-button">Add
+            Data<mat-icon>add</mat-icon></button>
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8 add-table" matSort>
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+                <mat-cell *matCellDef="let todo">{{ todo.id }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="firstName">
+                <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+                <mat-cell *matCellDef="let todo">{{ todo.firstName }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="lastName">
+                <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+                <mat-cell *matCellDef="let todo">{{ todo.lastName }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="phoneNumber">
+                <mat-header-cell *matHeaderCellDef>Phone Number</mat-header-cell>
+                <mat-cell *matCellDef="let todo">{{ todo.phoneNumber }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="country">
+                <mat-header-cell *matHeaderCellDef>Country</mat-header-cell>
+                <mat-cell *matCellDef="let todo">{{ todo.country }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+                <mat-cell *matCellDef="let todo">
+                    <button mat-icon-button color="primary" (click)="editTodo(todo)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="deleteTodo(todo)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[4]" aria-label="Select page of users"></mat-paginator>
+    </div>
+</div>
+
+<!-- <div class="form-container"> -->
+<!-- <mat-card *ngIf="isFormOpen" class="form-card"> -->
+<!-- <div *ngIf="isFormOpen">
+    <form #todoForm="ngForm" class="add-form">
+        <table class="form-full-width" cellspacing="0">
+            <tr>
+                <td><mat-form-field class="full-width firstname">
+                        <mat-label>First name</mat-label>
+                        <input matInput placeholder="First Name" [(ngModel)]="firstName" name="firstName" required>
+                    </mat-form-field></td>
+                <td><mat-form-field class="full-width lastname">
+                        <mat-label>Last name</mat-label>
+                        <input matInput placeholder="Last Name" [(ngModel)]="lastName" name="lastName" required>
+                    </mat-form-field></td>
+            </tr>
+        </table>
+        <p>
+            <mat-form-field class="form-full-width">
+                <mat-label>Phone Number</mat-label>
+                <input matInput placeholder="Phone Number" [(ngModel)]="phoneNumber" name="phoneNumber" required>
+            </mat-form-field>
+        </p>
+        <table class="form-full-width" cellspacing="0">
+            <tr>
+                <td><mat-form-field class="form-full-width">
+                        <mat-label>Country</mat-label>
+                        <input matInput placeholder="Country" [(ngModel)]="country" name="country" required>
+                    </mat-form-field></td>
+            </tr>
+        </table>
+        <section>
+            <mat-card-footer>
+                <div class="add-button-row">
+                    <button mat-raised-button color="primary" (click)="saveTodo()"
+                        [disabled]="!todoForm.form.valid">Save</button>
+                    <button mat-raised-button color="warn" (click)="closeForm()">Close</button>
+                </div>
+            </mat-card-footer>
+        </section>
+    </form>
+     </mat-card> -->
+<!-- </div> -->
