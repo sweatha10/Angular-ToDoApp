@@ -30,10 +30,15 @@
                 <td><mat-form-field class="form-full-width">
                         <mat-label>Country</mat-label>
                         <mat-icon matSuffix>place</mat-icon>
-                        <input matInput placeholder="Country" [(ngModel)]="country" name="country" required>
+                        <!-- <input matInput placeholder="Country" [(ngModel)]="country" name="country" required> -->
+                        <mat-select placeholder="Country" [(ngModel)]="country" name="country" required>
+                            <mat-option *ngFor="let country of countries" [value]="country.value">
+                                {{country.viewValue}}
+                              </mat-option>
+                          </mat-select>
                     </mat-form-field></td>
             </tr>
-        </table>
+        </table>sssssss
         <section>
             <mat-card-footer>
                 <div class="add-button-row">

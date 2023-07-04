@@ -2,6 +2,7 @@ import { Component, Inject,OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TodoList } from '../../todo-list/todo-list';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Country } from '../country';
 
 @Component({
   selector: 'app-todoform',
@@ -16,6 +17,20 @@ export class TodoformComponent  implements OnInit{
   country!: string;
 
   todoForm!: FormGroup;
+
+  countries: Country[] = [
+    {value: 'Africa', viewValue: 'Africa'},
+    {value: 'America', viewValue: 'America'},
+    {value: 'Asia', viewValue: 'Asia'},
+    {value: 'Australia', viewValue: 'Australia'},
+    {value: 'Canada', viewValue: 'Canada'},
+    {value: 'Europe', viewValue: 'Europe'},
+    {value: 'Italy', viewValue: 'Italy'},
+    {value: 'India', viewValue: 'India'},
+    {value: 'Sri Lanka', viewValue: 'Sri Lanka'},
+    {value: 'Singapore', viewValue: 'Singapore'},
+
+  ];
 
   constructor(public dialogRef: MatDialogRef<TodoformComponent>,@Inject(MAT_DIALOG_DATA) public data: TodoList) {}
 
