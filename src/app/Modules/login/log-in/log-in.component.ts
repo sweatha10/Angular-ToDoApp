@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/service/auth.service';
+import { AuthService } from 'src/app/@shared/auth.service';
 
 @Component({
   selector: 'app-log-in',
@@ -15,7 +15,9 @@ export class LogInComponent implements OnInit {
   userdata: any;
 
   constructor(private router: Router, private service: AuthService) { 
-    sessionStorage.clear();
+    if (this.service.isloggedin()) {
+     this.router.navigateByUrl('/todolist');
+    }
   }
 
   ngOnInit() {
